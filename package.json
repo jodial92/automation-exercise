@@ -1,24 +1,14 @@
 {
   "name": "automation-exercise",
   "version": "1.0.0",
-  "description": "This repository contains an exercise for practicing test automation using Playwright with TypeScript. The exercise is based on the [Parabank](https://parabank.parasoft.com/parabank/index.html) website, where participants will write automated test scripts to validate various functionalities.",
-  "main": "index.js",
+  "description": "This repository contains an exercise for practicing test automation using Playwright with TypeScript.",
+  "author": {
+    "name": "Lively, Inc."
+  },
   "directories": {
     "test": "tests"
   },
-  "scripts": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/LivelyHSA-recruiting/automation-exercise.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/LivelyHSA-recruiting/automation-exercise/issues"
-  },
-  "homepage": "https://github.com/LivelyHSA-recruiting/automation-exercise#readme",
-  "devDependencies": {
-    "@playwright/test": "^1.35.1"
+  "scripts": {
+    "play": "playwright test --project=chromium"
   }
 }
