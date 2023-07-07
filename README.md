@@ -42,24 +42,27 @@ The exercise includes the following test cases:
 
 1. Account Closure
 
-Description: This scenario tests the end-to-end process of closing a user account.
-Steps:
-1. Log in to the Parabank website using valid credentials.
-2. Navigate to the account closure page.
-3. Provide any required information or confirmations to initiate the account closure process.
-4. Verify that a confirmation message is displayed, indicating that the account closure request has been submitted.
-5. Attempt to log in again using the same account credentials.
-5. Validate that the login is no longer possible and the user is unable to access any account-related functionality.
+   Description: This scenario tests the end-to-end process of closing a user account.
+
+   Steps:
+     1. Log in to the Parabank website using valid credentials.
+     2. Navigate to the account closure page.
+     3. Provide any required information or confirmations to initiate the account closure process.
+     4. Verify that a confirmation message is displayed, indicating that the account closure request has been submitted.
+     5. Attempt to log in again using the same account credentials.
+     5. Validate that the login is no longer possible and the user is unable to access any account-related functionality.
 
 2. Account Profile Update
-Description: This scenario tests the end-to-end process of updating the user account profile information.
-Steps:
-1. Log in to the Parabank website using valid credentials.
-2. Navigate to the account profile page.
-3. Update one or more account profile fields, such as contact information or preferences.
-4. Save the updated profile information.
-5. Verify that a success message is displayed, indicating that the account profile has been updated successfully.
-6. Validate that the updated information is reflected on subsequent pages or in the account overview.
+
+   Description: This scenario tests the end-to-end process of updating the user account profile information.
+   
+   Steps:
+     1. Log in to the Parabank website using valid credentials.
+     2. Navigate to the account profile page.
+     3. Update one or more account profile fields, such as contact information or preferences.
+     4. Save the updated profile information.
+     5. Verify that a success message is displayed, indicating that the account profile has been updated successfully.
+     6. Validate that the updated information is reflected on subsequent pages or in the account overview.
 
 
 ### API
@@ -67,46 +70,51 @@ The challenges are as follows:
 
 1. User Registration
 
-Description: This test scenario validates the User Registration API by sending a request with valid user registration data.
-Steps:
-1. Prepare valid user registration data (e.g., first name, last name, email, password).
-2. Send a POST request to the User Registration API endpoint with the valid user data.
-3. Verify the response status code to ensure a successful registration (e.g., 200 or 201).
-4. Optionally, validate the response body to ensure it contains the expected data or success message.
-5. Verify that the registered user can successfully log in using the registered credentials.
-Expected Outcome: The registered user can successfully log in using the registered credentials.
+    Description: This test scenario validates the User Registration API by sending a request with valid user registration data.
+   
+    Steps:
+      1. Prepare valid user registration data (e.g., first name, last name, email, password).
+      2. Send a POST request to the User Registration API endpoint with the valid user data.
+      3. Verify the response status code to ensure a successful registration (e.g., 200 or 201).
+      4. Optionally, validate the response body to ensure it contains the expected data or success message.
+      5. Verify that the registered user can successfully log in using the registered credentials.
+    
+    Expected Outcome: The registered user can successfully log in using the registered credentials.
 
 
 2. Account Balance
 
-Description: This test scenario validates that the account balance is displayed correctly after logging in.
-Steps:
-1. Log in to the Parabank website using valid credentials.
-2. Retrieve the account balance from the UI.
-3. Perform a backend API call to get the actual account balance.
-4. Compare the UI account balance with the actual account balance obtained from the API.
-Expected Outcome: The account balance displayed on the UI should match the actual account balance retrieved from the API.
+   Description: This test scenario validates that the account balance is displayed correctly after logging in.
+
+   Steps:
+      1. Log in to the Parabank website using valid credentials.
+      2. Retrieve the account balance from the UI.
+      3. Perform a backend API call to get the actual account balance.
+      4. Compare the UI account balance with the actual account balance obtained from the API.
+   
+   Expected Outcome: The account balance displayed on the UI should match the actual account balance retrieved from the API.
 
 3. Transaction History
 
-Description: This test scenario verifies that the transaction history is displayed accurately for a specific account.
-Steps:
-1. Log in to the Parabank website using valid credentials.
-2. Navigate to the transaction history page.
-3. Select a specific account.
-4. Retrieve the transaction history table from the UI.
-5. Perform a backend API call to get the actual transaction history for the selected account.
-6. Compare the UI transaction history table with the actual transaction history obtained from the API.
-Expected Outcome: The transaction history table displayed on the UI should match the actual transaction history retrieved from the API.
+   Description: This test scenario verifies that the transaction history is displayed accurately for a specific account.
+
+   Steps:
+      1. Log in to the Parabank website using valid credentials.
+      2. Navigate to the transaction history page.
+      3. Select a specific account.
+      4. Retrieve the transaction history table from the UI.
+      5. Perform a backend API call to get the actual transaction history for the selected account.
+      6. Compare the UI transaction history table with the actual transaction history obtained from the API.
+   
+   Expected Outcome: The transaction history table displayed on the UI should match the actual transaction history retrieved from the API.
 
 
 ### CI
 In order to run using Github Actions the candidate can use the `.github/workflows/playwright.yml` as starting point and implement the follows challenges under that file or similar.
 The challenges are as follows:
-
-1. Implement a way to execute all the browser in parallel under .github/workflows/playwright.yml
-2. Implement a way to share the results to a Slack channel (can be #automation-reports) under .github/workflows/playwright.yml
-3. Implement a way to share the link for the HTML report to a Slack channel (can be #automation-reports) under .github/workflows/playwright.yml
+  1. Implement a way to execute all the browser in parallel under .github/workflows/playwright.yml
+  2. Implement a way to share the results to a Slack channel (can be #automation-reports) under .github/workflows/playwright.yml
+  3. Implement a way to share the link for the HTML report to a Slack channel (can be #automation-reports) under .github/workflows/playwright.yml
 
 Disclaimer: The `.github/workflows/playwright.yml` file is not ready to run!
 
