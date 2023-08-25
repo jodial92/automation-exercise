@@ -1,0 +1,1 @@
+export const randomUser = 'randomUser' + Math.random().toString().substring(2,7);

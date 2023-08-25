@@ -2,6 +2,7 @@ import { Locator, Page, expect } from '@playwright/test';
 
 export default class BillPayPage {
     readonly page: Page;
+    
     readonly payeeNameInput: Locator;
     readonly payeeAddressInput: Locator;
     readonly payeeCityInput: Locator;
@@ -31,7 +32,7 @@ export default class BillPayPage {
 
     async enterBillPaymentInfo(
         name: string, 
-        addres: string, 
+        address: string, 
         city: string, 
         state: string, 
         zip: string, 
@@ -40,7 +41,7 @@ export default class BillPayPage {
         amount: string) {
 
         await this.payeeNameInput.fill(name);
-        await this.payeeAddressInput.fill(addres);
+        await this.payeeAddressInput.fill(address);
         await this.payeeCityInput.fill(city);
         await this.payeeStateInput.fill(state);
         await this.payeeZipInput.fill(zip);

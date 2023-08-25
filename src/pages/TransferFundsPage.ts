@@ -6,10 +6,12 @@ export default class TransferFundsPage {
     readonly amountInput: Locator;
     readonly transferButton: Locator;
     readonly transferCompleteMessage: Locator;
+    readonly destinationAccount: Locator;
 
     constructor(page: Page) {
         this.page = page;
         this.amountInput = page.locator('#amount');
+        this.destinationAccount = page.locator('#fromAccountId');
         this.transferButton = page.getByRole('button', { name: 'Transfer' });
         this.transferCompleteMessage = page.getByRole('heading', { name: 'Transfer Complete!' });
     }
@@ -20,7 +22,7 @@ export default class TransferFundsPage {
     }
 
     async selectDestinationAccount(accountNumber: string) {
-        await this.page.locator('#toAccountId').selectOption(accountNumber);
+        await this.destinationAccount.selectOption(accountNumber);
     }
 
     async clickTransferButton() {

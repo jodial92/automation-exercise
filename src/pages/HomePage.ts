@@ -3,6 +3,9 @@ import { Locator, Page, expect } from '@playwright/test';
 export default class HomePage {
     readonly page: Page;
 
+    readonly forgotLogin: Locator;
+    readonly register: Locator;
+
     readonly usernameInput: Locator;
     readonly passwordInput: Locator;
     readonly loginButton: Locator;
@@ -15,6 +18,9 @@ export default class HomePage {
 
     constructor(page: Page) {
         this.page = page;
+
+        this.forgotLogin = page.getByRole('link', {name: 'Forgot login info?'});
+        this.register = page.getByRole('link', {name: 'Register'});
 
         this.usernameInput = page.locator('input[name="username"]');
         this.passwordInput = page.locator('input[name="password"]');
@@ -45,6 +51,14 @@ export default class HomePage {
 
     async clickPageLink(pageName: string) {
         switch(pageName) { 
+            case "forgot login": {
+                await this.forgotLogin.click();
+                break; 
+            }
+            case "register": {
+                await this.register.click();
+                break; 
+            }
             case "transfer funds": { 
                 await this.transferFundsLink.click();
                 break; 
