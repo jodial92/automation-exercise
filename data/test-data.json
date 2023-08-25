@@ -1,0 +1,28 @@
+{
+    "userRegstr": {
+        "name": "John",
+        "lastName": "Smith",
+        "address": "Freedom Street",
+        "city": "New York",
+        "state": "New York",
+        "zip": "10001",
+        "phone": "4105096995",
+        "ssn": "555501240",
+        "password": "test1234"
+    },
+    "acctLogin": {
+        "userFullName": "John Smith"
+    },
+    "transferFunds": {
+
+    },
+    "accountStatement": {
+
+    },
+    "billPayment": {
+
+    },
+    "loanApplication": {
+
+    }
+}

@@ -18,8 +18,9 @@ import RegisterPage from '../src/pages/RegisterPage';
  * The account must be manually obtained and updated from the previous user.
  * This can be improved but I ran out of time.
 */
-const username = 'randomUser67536';
-const accountNumber = '22224'
+const testData = JSON.parse(JSON.stringify(require('../data/test-data.json')));
+const username = 'johnsmith555';
+const accountNumber = '25332'
 
 test.beforeEach(async ({ page }, testInfo) => {
     await page.goto('https://parabank.parasoft.com/parabank/index.htm');
@@ -41,16 +42,16 @@ test.describe('Test Cases - User Registration', () => {
         await homePage.clickPageLink(Login.REGISTER);
         await expect(page).toHaveURL(/.*register.htm/);
         await registerPage.enterSignupInfo(
-            "John",
-            "Smith",
-            "Freedom Street",
-            "New York",
-            "New York",
-            "10001",
-            "4105096995",
-            "555501240",
+            testData.userRegstr.name,
+            testData.userRegstr.lastName,
+            testData.userRegstr.address,
+            testData.userRegstr.city,
+            testData.userRegstr.state,
+            testData.userRegstr.zip,
+            testData.userRegstr.phone,
+            testData.userRegstr.ssn,
             randomUser,
-            "test1234");
+            testData.userRegstr.password);
         await registerPage.clickRegisterButton();
         await registerPage.validateWelcomeMessage(randomUser);
     });
@@ -62,7 +63,7 @@ test.describe('Test Cases - Registered User', () => {
         const homePage = new HomePage(page);
 
         await expect(page).toHaveURL(/.*overview.htm/);
-        await homePage.validateWelcomeMessage("John Smith");
+        await homePage.validateWelcomeMessage(testData.acctLogin.userFullName);
     });
 
     test('Transfer funds', async ({ page }) => {
