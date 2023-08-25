@@ -10,5 +10,8 @@
   },
   "scripts": {
     "play": "playwright test --project=chromium"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.37.1"
   }
 }
