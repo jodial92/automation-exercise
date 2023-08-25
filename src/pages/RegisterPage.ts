@@ -66,5 +66,6 @@ export default class RegisterPage {
 
     async validateWelcomeMessage(username: string) {
         await expect(this.welcomeMessage).toContainText(`Welcome ${username}`);
+        console.log('YOUR NEW USER IS: ' + username);
     }
 }

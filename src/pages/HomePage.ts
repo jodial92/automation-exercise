@@ -15,6 +15,7 @@ export default class HomePage {
     readonly accountsOverViewLink: Locator;
     readonly billPayLink: Locator;
     readonly requestLoanLink: Locator;
+    readonly updateContactInfoLink: Locator;
 
     constructor(page: Page) {
         this.page = page;
@@ -31,6 +32,7 @@ export default class HomePage {
         this.accountsOverViewLink = page.getByRole('link', { name: 'Accounts Overview' });
         this.billPayLink = page.getByRole('link', { name: 'Bill Pay' });
         this.requestLoanLink = page.getByRole('link', { name: 'Request Loan' });
+        this.updateContactInfoLink = page.getByRole('link', { name: 'Update Contact Info' })
     }
 
     async enterUsername(username: string) {
@@ -73,6 +75,10 @@ export default class HomePage {
             }
             case "request loan": { 
                 await this.requestLoanLink.click();
+                break;
+            }
+            case "update contact info": {
+                await this.updateContactInfoLink.click();
                 break;
             }
          } 

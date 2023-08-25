@@ -3,7 +3,7 @@ import AccountsOverviewPage from '../src/pages/AccountsOverviewPage';
 import HomePage from '../src/pages/HomePage';
 import TransferFundsPage from '../src/pages/TransferFundsPage';
 import { Login } from '../src/utils/SignUpEnum';
-import { randomUser } from '../src/utils/UserGenerator';
+import { randomUser } from '../src/utils/UsernameGenerator';
 import { AccountServices } from '../src/utils/AccountServicesEnum';
 import { ActivityPeriod, TransactionType } from '../src/utils/AccountActivityEnum';
 import AccountDetailsPage from '../src/pages/AccountDetailsPage';
@@ -11,12 +11,22 @@ import BillPayPage from '../src/pages/BillPayPage';
 import RequestLoanPage from '../src/pages/RequestLoanPage';
 import RegisterPage from '../src/pages/RegisterPage';
 
+/* Users on the page get deleted automatically after some time.
+ * In order to run the test suite successfully, some data must be manually 
+ * updated before; run the user registration test and get the data from it.
+ * Look for the new user in the console log as "YOUR NEW USER IS: "
+ * The account must be manually obtained and updated from the previous user.
+ * This can be improved but I ran out of time.
+*/
+const username = 'randomUser67536';
+const accountNumber = '22224'
+
 test.beforeEach(async ({ page }, testInfo) => {
     await page.goto('https://parabank.parasoft.com/parabank/index.htm');
 
     if (testInfo.title !== 'User registration') {
         const homePage = new HomePage(page);
-        await homePage.enterUsername('johnsmith55');
+        await homePage.enterUsername(username);
         await homePage.enterPassword('test1234');
         await homePage.clickLoginButton();
     }
@@ -62,7 +72,7 @@ test.describe('Test Cases - Registered User', () => {
         await homePage.clickPageLink(AccountServices.TRANS_FUNDS);
         await expect(page).toHaveURL(/.*transfer.htm/);
         await transferFundsPage.enterAmount("50");
-        await transferFundsPage.selectDestinationAccount('13677');
+        await transferFundsPage.selectDestinationAccount(accountNumber);
         await transferFundsPage.clickTransferButton();
         await transferFundsPage.validateTransferCompleteMessage();
     });
@@ -74,7 +84,7 @@ test.describe('Test Cases - Registered User', () => {
 
         await homePage.clickPageLink(AccountServices.ACCT_OVERVIEW);
         await expect(page).toHaveURL(/.*overview.htm/);
-        await accountsOverviewPage.clickOnAccount("13566");
+        await accountsOverviewPage.clickOnAccount(accountNumber);
         await expect(page).toHaveURL(/.*activity.htm/);
         await accountDetailsPage.selectActivityPeriod(ActivityPeriod.AUG);
         await accountDetailsPage.selectTransactionType(TransactionType.CREDIT);
@@ -107,7 +117,7 @@ test.describe('Test Cases - Registered User', () => {
 
         await homePage.clickPageLink(AccountServices.REQ_LOAN);
         await requestLoanPage.enterLoanInfo("2000","100");
-        await requestLoanPage.selectOriginAccount("13566");
+        await requestLoanPage.selectOriginAccount(accountNumber);
         await requestLoanPage.clickAppyNowButton();
         await requestLoanPage.validateBillPaymentCompleteMessage();
     });
