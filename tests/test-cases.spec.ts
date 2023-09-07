@@ -19,8 +19,8 @@ import RegisterPage from '../src/pages/RegisterPage';
  * This can be improved but I ran out of time.
 */
 const testData = JSON.parse(JSON.stringify(require('../data/test-data.json')));
-const username = 'johnsmith555';
-const accountNumber = '25332'
+const username = 'randomUser64350';
+const accountNumber = '36765'
 
 test.beforeEach(async ({ page }, testInfo) => {
     await page.goto('https://parabank.parasoft.com/parabank/index.htm');
@@ -87,7 +87,7 @@ test.describe('Test Cases - Registered User', () => {
         await expect(page).toHaveURL(/.*overview.htm/);
         await accountsOverviewPage.clickOnAccount(accountNumber);
         await expect(page).toHaveURL(/.*activity.htm/);
-        await accountDetailsPage.selectActivityPeriod(ActivityPeriod.AUG);
+        await accountDetailsPage.selectActivityPeriod(ActivityPeriod.SEP);
         await accountDetailsPage.selectTransactionType(TransactionType.CREDIT);
         await accountDetailsPage.clickGoButton();
         await accountDetailsPage.validateStatementTablePresence();

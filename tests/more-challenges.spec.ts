@@ -12,8 +12,8 @@ import { AccountServices } from '../src/utils/AccountServicesEnum';
  * The account must be manually obtained and updated from the previous user.
  * This can be improved but I ran out of time.
 */
-const username = 'randomUser50763';
-const accountNumber = '23334'
+const username = 'randomUser64350';
+const accountNumber = '36765'
 
 test.beforeEach(async ({ page }, testInfo) => {
     if (testInfo.title !== 'User registration') {
@@ -46,6 +46,65 @@ test.describe('E2E', () => {
 });
 
 test.describe('API', () => {
+    
+    // test('User registration API', async ({ page }) => {
+    //     const url = 'https://parabank.parasoft.com/parabank/register.htm';
+
+    //     const getResponse = await page.request.get(url, {
+    //         ignoreHTTPSErrors: true,
+    //         headers: {
+    //             'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+    //         },
+    //     })
+    //     expect(getResponse.status()).toBe(200);
+    //     //const responseHeaders = (await getResponse.headers());
+    //     //const responseHeadersArray = getResponse.headersArray();
+    //     //const responseBody = (await getResponse.body()).toString();
+
+    //     const cookie = getResponse.headersArray().find(x => x.name === 'Set-Cookie')?.value;
+        
+    //     const formDataString = 'customer.firstName=John&customer.lastName=Smith&customer.address.street=Freedom&customer.address.city=Baltimore&customer.address.state=Maryland&customer.address.zipCode=63638&customer.phoneNumber=4041234321&customer.ssn=555501239&customer.username=johnsmith00400&customer.password=test1234&repeatedPassword=test1234'
+    //     const formData = new URLSearchParams();
+    //     formData.append('customer.firstName','John');
+    //     formData.append('customer.lastName','Smith');
+    //     formData.append('customer.address.street','Freedom');
+    //     formData.append('customer.address.city','New York');
+    //     formData.append('customer.address.state','New York');
+    //     formData.append('customer.address.zipCode','10001');
+    //     formData.append('customer.phoneNumber','4041234321');
+    //     formData.append('customer.ssn','555501239');
+    //     formData.append('customer.username','johnsmith01409');
+    //     formData.append('customer.password','test1234');
+    //     formData.append('repeated.password','test1234');
+        
+    //     const response = await page.request.post(url, {
+    //         ignoreHTTPSErrors: true,
+    //         headers: {
+    //             'authority': 'parabank.parasoft.com',
+    //             'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+    //             'accept-language': 'en-US,en;q=0.9,es;q=0.8',
+    //             'cache-control': 'max-age=0',
+    //             'content-type': 'application/x-www-form-urlencoded',
+    //             'cookie': '6BE7C5294505434698B49771C382FB0D',
+    //             //'cookie': 'JSESSIONID=7D35194C0007BF00A7B66BBEB547E91D',
+    //             'origin': 'https://parabank.parasoft.com',
+    //             'referer': 'https://parabank.parasoft.com/parabank/register.htm',
+    //             'sec-ch-ua-mobile': '?0',
+    //             'sec-fetch-dest': 'document',
+    //             'sec-fetch-mode': 'navigate',
+    //             'sec-fetch-site': 'same-origin',
+    //             'sec-fetch-user': '?1',
+    //             'upgrade-insecure-requests': '1'
+    //         },
+    //         data: formDataString//formData.toString()
+    //     })
+        
+    //     //I couldn't figure out how to get a successful POST response without a cookie
+    //     const log = (await response.body()).toString()
+    //     console.log(log);
+    //     //expect(response.status()).toBe(200);
+    // });
+    
 
     test('User registration', async ({ page }) => {
         const url = 'https://parabank.parasoft.com/parabank/register.htm';
